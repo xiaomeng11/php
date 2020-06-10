@@ -21,4 +21,19 @@ class MyGreeter_Client_Test extends \PHPUnit_Framework_TestCase
             strlen($this->greeter->getGreeting()) > 0
         );
     }
+
+    public function test_greetingStr()
+    {
+        if(date('H') < '12'){
+            $str = "Good morning";
+        }elseif(date('H') < '18'){
+            $str = "Good afternoon";
+        }else{
+            $str = "Good evening";
+        }
+        $this->assertEquals(
+            $this->greeter->getGreeting(),
+            $str
+        );
+    }
 }
